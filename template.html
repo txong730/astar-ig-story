@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0}
+#s{position:relative;width:1080px;height:1920px;overflow:hidden;background:linear-gradient(180deg,#c9dcee 0%,#b9d1e8 100%);font-family:'Noto Serif','Georgia','Times New Roman',serif;font-weight:700;color:#0a0a0a}
+#logo{position:absolute;right:-230px;top:120px;width:900px;opacity:.38}
+.b{position:absolute;border-radius:50%;background:#fff}
+#txt{position:absolute;left:70px;right:70px;top:210px;bottom:200px;white-space:pre-wrap;line-height:1.28;overflow:hidden}
+</style></head><body>
+<div id="s">
+<img id="logo" src="logo.svg">
+<div class="b" style="width:90px;height:90px;left:-30px;top:520px;opacity:.9"></div>
+<div class="b" style="width:140px;height:140px;left:230px;top:300px;opacity:.35"></div>
+<div class="b" style="width:60px;height:60px;right:60px;top:1500px;opacity:.9"></div>
+<div class="b" style="width:420px;height:420px;left:-160px;bottom:-140px;opacity:.9"></div>
+<div class="b" style="width:200px;height:200px;right:-20px;bottom:30px;opacity:.9"></div>
+<div id="txt"></div>
+</div>
+<script>
+window.render=async function(t){
+  await document.fonts.ready;
+  const el=document.getElementById('txt');el.textContent=t;
+  let f=64;el.style.fontSize=f+'px';
+  while(el.scrollHeight>el.clientHeight&&f>20){f-=1;el.style.fontSize=f+'px';}
+  return f;
+};
+</script></body></html>

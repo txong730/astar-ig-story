@@ -1,0 +1,23 @@
+name: Post IG Story
+on:
+  schedule:
+    - cron: '0 6 * * *' # 14:00 Malaysia time (UTC+8)
+  workflow_dispatch: {}
+concurrency: story
+permissions:
+  contents: write
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: sudo apt-get update && sudo apt-get install -y fonts-noto-color-emoji
+      - run: npm install
+      - run: npx playwright install --with-deps chromium
+      - run: node post.mjs
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}

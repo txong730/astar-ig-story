@@ -1,0 +1,7 @@
+{
+  "name": "astar-ig-story-bot",
+  "private": true,
+  "type": "module",
+  "scripts": { "dry": "node post.mjs --dry", "post": "node post.mjs" },
+  "dependencies": { "playwright": "1.49.1" }
+}
